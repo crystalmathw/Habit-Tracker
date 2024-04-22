@@ -1,11 +1,10 @@
 import React from 'react';
+import "./footer.css"
 
 export default function Header() {
   return (
-    <footer>
-      <div className="footer">
+    <footer className="footer">
         <p>Platzhalter</p>
-      </div>
     </footer>
   );
 }

@@ -1,31 +1,34 @@
 import React from 'react';
+import "./sidebar.css"
 
 export default function Header() {
   return (
-    <sidebar>
-      <div className="sidebar">
+    <sidebar className="sidebar">
+      <div>
         <div>
-          <div>
-            <a className="sidebar_link" href="home.html">
-              <p className="sidebar_text">Home</p>
-            </a>
-          </div>  
-          <div>
-            <a className="sidebar_link" href="habits.html">
-              <p className="sidebar_text">Your Habits</p>
-            </a>
-          </div> 
-          <div>
-            <a className="sidebar_link" href="goals.html">
-              <p className="sidebar_text">Your Goals</p>
-            </a>
-          </div> 
-          <div>
-            <a className="sidebar_link" href="journal.html">
-              <p className="sidebar_text">Journal</p>
-            </a>
-          </div> 
-        </div>
+          <button className='sidebar_button'>
+            <img src='/Home.svg' width={35} className='sidebar_img'></img>
+            Home
+            </button>
+        </div>  
+        <div>
+        <button className='sidebar_button'>
+            <img src='/Habits.svg' width={35} className='sidebar_img'></img>
+            Your Habits
+            </button>
+        </div> 
+        <div>
+        <button className='sidebar_button'>
+            <img src='/Goals.svg' width={35} className='sidebar_img'></img>
+            Your Goals
+            </button>
+        </div> 
+        <div>
+        <button className='sidebar_button'>
+            <img src='/Journal.svg' width={35} className='sidebar_img'></img>
+            Journal
+            </button>
+        </div> 
       </div>
     </sidebar>
   );

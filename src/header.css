@@ -1,0 +1,36 @@
+.header {
+    margin: 0px;
+    padding: 10px;
+    min-height: 74px;
+  
+    background-color: #24262a;
+    color: #84d1de;
+  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  
+    font-weight: bold;
+  
+    border: solid;
+    border-radius: 10px;
+    border-color: #24262a;
+  }
+  
+  #header_text {
+    margin: 0px;
+    font-size: 2em;
+  }
+  
+  .profile {
+    padding-left: 20px;
+  
+    padding-right: 20px;
+    border: solid;
+    border-radius: 30px;
+  
+    background-color: #84d1de;
+    color: #24262a;
+  
+  }

@@ -1,0 +1,18 @@
+.habits_bar{
+    border: solid;
+    border-radius: 10px;
+    border-color: #24262a;
+
+    background-color: #24262a;
+    color: #84d1de;
+
+    align-content: center;
+    width: 100%;
+    max-height: 50px;
+}
+
+#habits_bar_text {
+    margin: 0px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
