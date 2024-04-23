@@ -1,9 +1,9 @@
 import React from 'react';
 import "./sidebar.css"
 
-export default function Sidebar({ loadHome, loadHabits, loadGoals,  loadJournal, login }) {
+export default function Sidebar({ loadHome, loadHabits, loadGoals,  loadJournal }) {
   return (
-    <sidebar className="sidebar">
+    <div className="sidebar">
       <div>
         <div>
           <button className='sidebar_button' onClick={loadHome}>
@@ -29,12 +29,7 @@ export default function Sidebar({ loadHome, loadHabits, loadGoals,  loadJournal,
             Journal
           </button>
         </div>
-        <div>
-          <button onClick={login}>
-            Login
-          </button>
-        </div>
       </div>
-    </sidebar>
+    </div>
   );
 }

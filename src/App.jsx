@@ -12,10 +12,8 @@ import { Simulate } from 'react-dom/test-utils';
 
 export default function App() {
   const [page, setPage] = useState(1);
-
-  function login() {
-    setPage(0)
-  }
+  const [isLogin, setLogin] = useState(false); 
+  const [username, setUsername] = useState("Profile")
 
   function loadHome() {
     setPage(1);
@@ -33,24 +31,34 @@ export default function App() {
     setPage(4);
   }
 
+  function loggedIn() {
+    setLogin(true);
+  }
+
+  function setUser(user) {
+    setUsername(user)
+  }
+
   let content
-  if (page === 1) {
-    content = <Home />
-  } else if (page === 2){
-    content = <Habits />
-  } else if (page === 3){
-    content = <Goals />
-  } else if (page === 4){
-    content = <Journal />
-  } else if (page === 0){
-    content = <Login />
+  if (isLogin === false){
+    content = <Login loggedIn={loggedIn} setUser={setUser} />
+  } else {
+    if (page === 1) {
+      content = <Home />
+    } else if (page === 2){
+      content = <Habits />
+    } else if (page === 3){
+      content = <Goals />
+    } else if (page === 4){
+      content = <Journal />
+    }
   }
 
   return (
     <main>
-      <Header />
+      <Header username={username}/>
       <div className='container'>
-        <Sidebar loadHome={loadHome} loadHabits={loadHabits} loadGoals={loadGoals} loadJournal={loadJournal} login={login}/>
+        <Sidebar loadHome={loadHome} loadHabits={loadHabits} loadGoals={loadGoals} loadJournal={loadJournal} />
         <div className="main">
           {content}
         </div>
