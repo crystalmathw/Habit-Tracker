@@ -1,7 +1,13 @@
+.habits {
+    width: 100%;
+}
+
 .habits_bar{
     border: solid;
     border-radius: 10px;
     border-color: #24262a;
+
+    padding: 10px;
 
     background-color: #24262a;
     color: #84d1de;
