@@ -4,37 +4,59 @@ const users = [
         "username": "Karl",
         "password": "1234",
         "habits": {
-            "Gaming": {
-                "progress": 10
-            },
-            "Eating": {
-                "progress":2
-            }
+            "count": 2,
+            "content" : [
+                {
+                    "id": 1,
+                    "name": "Gaming",
+                    "progress": 10,
+                },
+                {
+                    "id": 2,
+                    "name": "Schlafen",
+                    "progress": 120,
+                },
+        ]
+            
         },
         "goals": {
-            "NoSmoking": {
-                "progress": 10,
-                "goal": 20
-            }
+            "count": 1,
+            "content" : [
+                {
+                    "id": 1,
+                    "name": "No Smoking",
+                    "progress": 10,
+                    "goal": 20,
+                }
+            ]
+            
         }
     },
     {
         "id": 2,
         "username": "Achim",
-        "password": "12234",
+        "password" : "12345",
         "habits": {
-            "Gaming": {
-                "progress": 130
-            },
-            "Eating": {
-                "progress":22
-            }
+            "count": 1,
+            "content" : [
+                {
+                    "id": 1,
+                    "name": "Schule",
+                    "progress": 120,
+                },
+        ]
+            
         },
         "goals": {
-            "NoSmoking": {
-                "progress": 110,
-                "goal": 320
-            }
+            "count": 1,
+            "content" : [
+                {
+                    "id": 1,
+                    "name": "No Smoking",
+                    "progress": 120,
+                    "goal": 220,
+                }
+            ]
         }
     }
 ]

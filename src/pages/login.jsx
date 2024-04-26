@@ -2,36 +2,41 @@ import React, { useState } from 'react';
 import users from "../../data/users"
 import './login.css'
 
-export default function Login({ loggedIn, setUser }) {
-    const [usernameValue, setUsernameValue] = useState("")
+export default function Login({ loggedIn, setUser, addAccount }) {
+    //Variable for enterd Username
+    const [usernameValue, setUsernameValue] = useState("Karl")
     const searchUsername = (event) => {
         setUsernameValue(event.target.value);
-        setLoginText("")
+        setLoginError("")
     }
 
-    const [passwordValue, setPasswordValue] = useState("")
+    //Variable for enterd Password
+    const [passwordValue, setPasswordValue] = useState("1234")
     const searchPassword = (event) => {
         setPasswordValue(event.target.value);
-        setLoginText("")
+        setLoginError("")
     }
 
-    const [loginText, setLoginText] = useState("")
+    //Variable for Error Message
+    const [loginError, setLoginError] = useState("")
 
+    //checking Login Data
     function checkLoginData(){
-        const user = users.find((user) => user.username==usernameValue)
-        const password = user ? user.password : ""
-        if (usernameValue == "" || passwordValue == ""){
-            setLoginText("Enter Username or Password")
-        } else {
-            setLoginText("")
-            if (passwordValue == password) {
-                loggedIn()
-                setUser(user.username)
+        const user = users.find((user) => user.username==usernameValue)     //Looking for Account
+        const password = user ? user.password : ""                          //Getting account password 
+        if (usernameValue == "" || passwordValue == ""){                    // checking if smth is entered
+            setLoginError("Please Enter an Username or Password")           //if not give Error
+        } else { 
+            setLoginError("")
+            if (passwordValue == password) {                                //checking if passwords mathch
+                loggedIn()                                                  //logging Account in
+                setUser(user.username)                                      //sending Username to App.jsx
             } else {
-                setLoginText("Username and password do not match")
+                setLoginError("Username and password do not match")         //if not give Error
             }
         }
     }
+
   return (
     <div className='login_page'>
         <div>
@@ -42,14 +47,14 @@ export default function Login({ loggedIn, setUser }) {
                 <input type='text' placeholder='Username' value={usernameValue} onChange={searchUsername} />
                 <input type='password' placeholder="Password" value={passwordValue} onChange={searchPassword}/>
                 <div className='login_error'>
-                    {loginText}
+                    {loginError}
                 </div>
                 <button onClick={checkLoginData}>
-                    Login
+                    Log In
                 </button>
             </div>
-            <button className='add_account'>
-                Create Account
+            <button onClick={addAccount}>
+                Sign In
             </button>
         </div>
     </div>
