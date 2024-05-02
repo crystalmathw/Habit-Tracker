@@ -37,7 +37,7 @@
     animation: alternate;
 }
 
-input{
+.createAccount_input {
     background-color: #24262a;
     color:#84d1de;
     padding: 6px;
@@ -46,7 +46,7 @@ input{
 
     border: solid;
     border-radius: 10px;
-    border-color: #1f2226;
+    border-color: #84d1de;
 }
 
 button{

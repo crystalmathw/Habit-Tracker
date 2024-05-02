@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import users from "../../data/users"
+import React, { useState, useEffect } from 'react';
 import "./createAccount.css"
+import axios from "axios";
 
 export default function CreateAccount({ loggedIn, setUser, accCreated }) {
     //Variable for enterd Username
@@ -19,6 +19,19 @@ export default function CreateAccount({ loggedIn, setUser, accCreated }) {
 
     //Variable for Error Message
     const [CreateAccountError, setCreateAccountError] = useState("")
+
+    const [users, setUserData] = useState(null);
+
+    useEffect(() => {
+        // Fetch user data from server when component mounts
+        axios.get("../../data/users.json")
+          .then(response => {
+            setUserData(response.data);
+          })
+          .catch(error => {
+            console.error("Error fetching user data:", error);
+          });
+      }, []);
 
     //checking new Account Data
     function checkAccountData(){
@@ -53,6 +66,8 @@ export default function CreateAccount({ loggedIn, setUser, accCreated }) {
                 "content" : []  
             }
         }
+        //write JSON document
+        axios.post("../../data/users.json", users)
     }
 
   return (
@@ -62,8 +77,8 @@ export default function CreateAccount({ loggedIn, setUser, accCreated }) {
         </div>
         <div>
             <div className='createAccount'>
-                <input type='text' placeholder='Username' value={usernameValue} onChange={searchUsername} />
-                <input type='password' placeholder="Password" value={passwordValue} onChange={searchPassword}/>
+                <input type='text' placeholder='Username' value={usernameValue} onChange={searchUsername} className='createAccount_input'/>
+                <input type='password' placeholder="Password" value={passwordValue} onChange={searchPassword} className='createAccount_input'/>
                 <div className='createAccount_error'>
                     {CreateAccountError}
                 </div>

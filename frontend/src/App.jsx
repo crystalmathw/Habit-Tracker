@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, } from 'react';
 import './App.css'
 import Header from "./content/header"
 import Sidebar from "./content/sidebar"
@@ -65,7 +65,7 @@ export default function App() {
     } else if (page === 3){
       content = <Goals username={username}/>
     } else if (page === 4){
-      content = <Journal />
+      content = <Journal username={username} />
     }
   }
 

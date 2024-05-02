@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import users from "../../data/users"
+import React, { useState, useEffect } from 'react';
 import './login.css'
+import axios from "axios";
 
-export default function Login({ loggedIn, setUser, addAccount }) {
+export default function Login({ loggedIn, setUser, addAccount }) { 
     //Variable for enterd Username
     const [usernameValue, setUsernameValue] = useState("Karl")
     const searchUsername = (event) => {
@@ -19,6 +19,19 @@ export default function Login({ loggedIn, setUser, addAccount }) {
 
     //Variable for Error Message
     const [loginError, setLoginError] = useState("")
+
+    const [users, setUserData] = useState(null);
+
+    useEffect(() => {
+        // Fetch user data from server when component mounts
+        axios.get("../../data/users.json")
+          .then(response => {
+            setUserData(response.data);
+          })
+          .catch(error => {
+            console.error("Error fetching user data:", error);
+          });
+      }, []);
 
     //checking Login Data
     function checkLoginData(){
@@ -44,8 +57,8 @@ export default function Login({ loggedIn, setUser, addAccount }) {
         </div>
         <div>
             <div className='login'>
-                <input type='text' placeholder='Username' value={usernameValue} onChange={searchUsername} />
-                <input type='password' placeholder="Password" value={passwordValue} onChange={searchPassword}/>
+                <input type='text' placeholder='Username' value={usernameValue} onChange={searchUsername} className='login_input'/>
+                <input type='password' placeholder="Password" value={passwordValue} onChange={searchPassword} className='login_input'/>
                 <div className='login_error'>
                     {loginError}
                 </div>

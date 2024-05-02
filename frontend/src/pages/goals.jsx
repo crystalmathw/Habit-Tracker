@@ -1,5 +1,5 @@
 import React from 'react';
-import users from "../../data/users"
+import users from "../../data/users.json"
 
 export default function Goals( {username} ) {
   const userData = users.find((user) => user.username==username)  //getting UserData from username

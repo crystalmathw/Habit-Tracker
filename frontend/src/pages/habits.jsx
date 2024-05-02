@@ -1,6 +1,6 @@
 import React from 'react';
 import "./habits.css"
-import users from "../../data/users"
+import users from "../../data/users.json"
 
 export default function Habits( {username} ) {
   const userData = users.find((user) => user.username==username)  //getting UserData from username

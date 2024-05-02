@@ -1,0 +1,61 @@
+.journal {
+    width: 100%;
+}
+
+.journal_bar{
+    border: solid;
+    border-radius: 10px;
+    border-color: #24262a;
+
+    padding: 10px;
+
+    background-color: #24262a;
+    color: #84d1de;
+
+    align-content: center;
+    max-height: 50px;
+}
+
+#journal_bar_text {
+    margin: 0px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.journal_list {
+    border: solid;
+    border-radius: 10px;
+    border-color: #24262a;
+
+    padding-right: 10px;
+
+    background-color: #24262a;
+    color: #84d1de;
+}
+
+.journal_list_element {
+    border: solid;
+    border-radius: 10px;
+    border-color: #84d1de;
+
+    background-color: #84d1de;
+    color: #24262a;
+
+    padding: 10px;
+}
+
+.journal_date {
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.journal_entry {
+    border: solid;
+    border-radius: 10px;
+    border-color: #24262a;
+
+    background-color: #24262a;
+    color: #84d1de;
+
+    padding: 10px;
+}
