@@ -1,18 +1,32 @@
-import React from 'react';
-import users from "../../data/users.json"
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 
 export default function Goals( {username} ) {
-  const userData = users.find((user) => user.username==username)  //getting UserData from username
-  const userGoals = userData.goals.content                        //getting Goals from UserData
+  const [userData, setUserData] = useState(null)  //getting UserData from username
+  useEffect(() => {
+    // Fetch user data from server when component mounts
+    axios.get(`http://127.0.0.1:5000/data/${username}`)
+      .then(response => {
+        setUserData(response.data);
+      })
+      .catch(error => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
   
   //rendering userGoals
   function renderGoals() {
-    const listItems = userGoals.map(goal =>
-      <p key={goal.id}>
-        {goal.name} <br/> Progress: {goal.progress}/{goal.goal}
-      </p>
-    );
-    return listItems
+    if (userData == null) {
+      return null
+    } else {
+      const userGoals = userData.goals.content //getting Goals from UserData
+      const listItems = userGoals.map(goal =>
+        <p key={goal.id}>
+          {goal.name} <br/> Progress: {goal.progress}/{goal.goal}
+        </p>
+      );
+      return listItems
+    }
   }
 
   return (

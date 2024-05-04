@@ -4,14 +4,14 @@ import axios from "axios";
 
 export default function CreateAccount({ loggedIn, setUser, accCreated }) {
     //Variable for enterd Username
-    const [usernameValue, setUsernameValue] = useState("")
+    const [usernameValue, setUsernameValue] = useState("Friedrich")
     const searchUsername = (event) => {
         setUsernameValue(event.target.value);
         setCreateAccountError("")
     }
 
     //Variable for enterd Password
-    const [passwordValue, setPasswordValue] = useState("")
+    const [passwordValue, setPasswordValue] = useState("Willhelm")
     const searchPassword = (event) => {
         setPasswordValue(event.target.value);
         setCreateAccountError("")
@@ -24,7 +24,7 @@ export default function CreateAccount({ loggedIn, setUser, accCreated }) {
 
     useEffect(() => {
         // Fetch user data from server when component mounts
-        axios.get("../../data/users.json")
+        axios.get(`http://127.0.0.1:5000/data`)
           .then(response => {
             setUserData(response.data);
           })
@@ -54,20 +54,22 @@ export default function CreateAccount({ loggedIn, setUser, accCreated }) {
         setUser(usernameValue)          //sending Username to App.jsx
         accCreated()                    //turning Account Creation off
         users[users.length] = {         //entering Userdata in Database
-            "id": users.length,
+            "id": users.length + 1,
             "username": usernameValue,
             "password" : passwordValue,
             "habits": {
-                "count": 0,
-                "content" : []    
+                "content": []    
             },
             "goals": {
-                "count": 0,
-                "content" : []  
-            }
+                "content": []  
+            },
+            "journal": {
+                "content": []
+            }  
         }
         //write JSON document
-        axios.post("../../data/users.json", users)
+        axios.post("http://127.0.0.1:5000/data", users)
+        
     }
 
   return (
@@ -86,6 +88,10 @@ export default function CreateAccount({ loggedIn, setUser, accCreated }) {
                     Create Account
                 </button>
             </div>
+            <p style={{margin: "0"}}>Already have an account?</p>
+            <button onClick={accCreated}>
+                Log In
+            </button>
         </div>
     </div>
   );

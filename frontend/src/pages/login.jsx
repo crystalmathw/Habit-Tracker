@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './login.css'
 import axios from "axios";
+import './login.css'
 
 export default function Login({ loggedIn, setUser, addAccount }) { 
     //Variable for enterd Username
@@ -20,22 +20,21 @@ export default function Login({ loggedIn, setUser, addAccount }) {
     //Variable for Error Message
     const [loginError, setLoginError] = useState("")
 
-    const [users, setUserData] = useState(null);
+    const [user, setUserData] = useState(null);
 
     useEffect(() => {
         // Fetch user data from server when component mounts
-        axios.get("../../data/users.json")
+        axios.get(`http://127.0.0.1:5000/data/${usernameValue}`)
           .then(response => {
             setUserData(response.data);
           })
           .catch(error => {
             console.error("Error fetching user data:", error);
           });
-      }, []);
+    }, []);
 
     //checking Login Data
     function checkLoginData(){
-        const user = users.find((user) => user.username==usernameValue)     //Looking for Account
         const password = user ? user.password : ""                          //Getting account password 
         if (usernameValue == "" || passwordValue == ""){                    // checking if smth is entered
             setLoginError("Please Enter an Username or Password")           //if not give Error
@@ -66,6 +65,7 @@ export default function Login({ loggedIn, setUser, addAccount }) {
                     Log In
                 </button>
             </div>
+            <p style={{margin: "0"}}>Do not have an account?</p>
             <button onClick={addAccount}>
                 Sign In
             </button>

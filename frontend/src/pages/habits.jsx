@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import "./habits.css"
-import users from "../../data/users.json"
 
 export default function Habits( {username} ) {
-  const userData = users.find((user) => user.username==username)  //getting UserData from username
-  const userHabits = userData.habits.content                      //getting Habits from UserData
-  
+  const [userData, setUserData] = useState(null)  //getting UserData from username
+  useEffect(() => {
+    // Fetch user data from server when component mounts
+    axios.get(`http://127.0.0.1:5000/data/${username}`)
+      .then(response => {
+        setUserData(response.data);
+      })
+      .catch(error => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
+                       
   //rendering userHabits
   function renderHabits() {
-    const listItems = userHabits.map(habit =>
-      <p key={habit.id}>
-        {habit.name}
-      </p>
-    );
-    return listItems
+    if (userData == null) {
+      return null
+    } else {
+      const userHabits = userData.habits.content //getting Habits from UserData
+      const listItems = userHabits.map(habit =>
+        <p key={habit.id}>
+          {habit.name}
+        </p>
+      );
+      return listItems
+    }
   }
 
   return (
