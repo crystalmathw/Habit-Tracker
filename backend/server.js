@@ -29,7 +29,6 @@ app.get('/data/:username', (req, res) => {
 
     // Find the user with the given username in the data array
     const user = data.find((u) => u.username == username);
-
     // If the user exists, send it as a JSON response
     if (user) {
     res.json(user);
@@ -43,11 +42,10 @@ app.get('/data/:username', (req, res) => {
 app.post('/data', (req, res) => {
     // To handle the request body, we need to use a middleware called express.json
     // This middleware parses the request body as JSON and adds it to the req object
-    app.use(express.json());
 
     // Get the data from the request body
     const newData = req.body;
-    console.log(req.body)
+
 
     // Validate the data
     if (newData != undefined) {
@@ -65,27 +63,29 @@ app.post('/data', (req, res) => {
 });
 
     // Create a route and a handler for PUT /data/:id
-app.put('/data/:id', (req, res) => {
+app.put('/data/:username/journal', (req, res) => {
     // To handle the request body, we need to use the express.json middleware
-    app.use(express.json());
+
 
     // Get the id parameter from the request
-    const id = req.params.id;
+    const username = req.params.username;
 
     // Get the data from the request body
-    const data = req.body;
+    const entryData = req.body;
 
     // Validate the data
-    if (data.title && data.content && data.author) {
+    if (entryData.id && entryData.date && entryData.entry) {
         // If the data is valid, find the user with the given id in the data array
-        const user = data.find((p) => p.id == id);
+        const user = data.find((p) => p.username == username);
 
         // If the user exists, update its properties with the data
         if (user) {
-        user.title = data.title;
-        user.content = data.content;
-        user.author = data.author;
-
+            user.journal.content.push(entryData)
+            data[user.id-1]=user
+            fs.writeFileSync("./data/users.json", JSON.stringify(data), function(err) {
+                if (err) throw err;
+                console.log('complete');
+            })
         // Send a 200 status code and the updated user as a JSON response
         res.status(200).json(user);
         } else {
@@ -95,4 +95,57 @@ app.put('/data/:id', (req, res) => {
     } else {
         res.status(400).send("Invalid data"); 
     }
+}),
+
+app.put('/data/:username/goals', (req, res) => {
+    const username = req.params.username;
+    const goalData = req.body;
+
+    if (goalData.id && goalData.startDate && goalData.name) {
+        const user = data.find((p) => p.username == username);
+        if (user) {
+            user.goals.content.push(goalData)
+            data[user.id-1]=user
+
+            /fs.writeFileSync("./data/users.json", JSON.stringify(data), function(err) {
+                if (err) throw err;
+                console.log('complete');
+            })
+        res.status(200).json(user);
+        } else {
+        res.status(404).send('User not found');
+        }
+    }
+})
+
+app.put('/data/:username/delete/journal', (req, res) => {
+    app.use(express.json());
+    var newUserData = req.body;
+    if (newUserData.journal.content.length !== 0){
+        for (let i = 0; i < newUserData.journal.content.length; i++) {
+            newUserData.journal.content[i].id = i + 1
+        }
+    }
+    data[newUserData.id-1]=newUserData
+    fs.writeFileSync("./data/users.json", JSON.stringify(data), function(err) {
+        if (err) throw err;
+        console.log('complete');
+    })
+    res.status(200).json(data)
+})
+
+app.put('/data/:username/delete/goals', (req, res) => {
+    app.use(express.json());
+    var newUserData = req.body;
+    if (newUserData.goals.content.length !== 0){
+        for (let i = 0; i < newUserData.goals.content.length; i++) {
+            newUserData.goals.content[i].id = i + 1
+        }
+    }
+    data[newUserData.id-1]=newUserData
+    fs.writeFileSync("./data/users.json", JSON.stringify(data), function(err) {
+        if (err) throw err;
+        console.log('complete');
+    })
+    res.status(200).json(data)
 })

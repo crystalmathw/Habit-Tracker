@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import "./habits.css"
 
-export default function Habits( {username} ) {
+export default function Habits( {username, loading, loadHabits} ) {
   const [userData, setUserData] = useState(null)  //getting UserData from username
   useEffect(() => {
     // Fetch user data from server when component mounts

@@ -4,14 +4,14 @@ import axios from "axios";
 
 export default function CreateAccount({ loggedIn, setUser, accCreated }) {
     //Variable for enterd Username
-    const [usernameValue, setUsernameValue] = useState("Friedrich")
+    const [usernameValue, setUsernameValue] = useState("")
     const searchUsername = (event) => {
         setUsernameValue(event.target.value);
         setCreateAccountError("")
     }
 
     //Variable for enterd Password
-    const [passwordValue, setPasswordValue] = useState("Willhelm")
+    const [passwordValue, setPasswordValue] = useState("")
     const searchPassword = (event) => {
         setPasswordValue(event.target.value);
         setCreateAccountError("")

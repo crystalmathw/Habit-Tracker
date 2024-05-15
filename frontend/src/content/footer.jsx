@@ -4,7 +4,7 @@ import "./footer.css"
 export default function Footer() {
   return (
     <footer className="footer">
-        <p>Platzhalter</p>
+        <p>Copyright © 753 BC. All rights reserved.</p>
     </footer>
   );
 }

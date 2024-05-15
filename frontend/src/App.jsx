@@ -8,6 +8,7 @@ import Habits from './pages/habits';
 import Goals from "./pages/goals";
 import Journal from "./pages/journal"
 import Login from "./pages/login"
+import Loading from './pages/loading';
 import CreateAccount from "./pages/createAccount"
 import { Simulate } from 'react-dom/test-utils';
 
@@ -32,6 +33,10 @@ export default function App() {
 
   function loadJournal() {
     setPage(4);
+  }
+
+  function loading() {
+    setPage(5)
   }
 
   function loggedIn() {
@@ -61,11 +66,13 @@ export default function App() {
     if (page === 1) {
       content = <Home />
     } else if (page === 2){
-      content = <Habits username={username}/>
+      content = <Habits username={username} loading={loading} loadHabits={loadHabits}/>
     } else if (page === 3){
-      content = <Goals username={username}/>
+      content = <Goals username={username} loading={loading} loadGoals={loadGoals}/>
     } else if (page === 4){
-      content = <Journal username={username} />
+      content = <Journal username={username} loading={loading} loadJournal={loadJournal}/>
+    } else if (page === 5){
+      content = <Loading/>
     }
   }
 

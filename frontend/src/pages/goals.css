@@ -1,8 +1,8 @@
-.journal {
+.goals {
     width: 100%;
 }
 
-.journal_bar{
+.goals_bar{
     border: solid;
     border-radius: 10px;
     border-color: #24262a;
@@ -21,20 +21,20 @@
     max-height: 50px;
 }
 
-.journal_add{
+.goals_add{
     width: 51px;
     height: 51px;
 
     border-radius: 30px;
 }
 
-#journal_bar_text {
+#goals_bar_text {
     margin: 0px;
     font-size: 1.5em;
     font-weight: bold;
 }
 
-.journal_add_entry{
+.goals_add_goal{
     width: 700px;
     position: absolute;
     top: 50%; left: 50%;
@@ -54,7 +54,7 @@
     padding: 5px;
 }
 
-.journal_add_entry_header{
+.goals_add_goal_header{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -62,12 +62,12 @@
     padding-bottom: 5px;
 }
 
-.journal_add_entry_text{
+.goals_add_goal_text{
     font-weight: bold;
     margin: 0px;
 }
 
-.journal_add_entry_button{
+.goals_add_goal_button{
     width: 100%;
     padding: 5px;
     background-color: #24262a;
@@ -75,17 +75,32 @@
     margin: 0px;
 }
 
-.journal_add_entry_input{
+/*add Menu desinge*/
+.goals_add_menue{
+    display: grid;
     background-color: #24262a;
     color: #84d1de;
+    padding: 10px;
+
+    border: solid;
+    border-radius: 20px;
+    border-color: #24262a;
+    justify-content: center;
+}
+.goals_add_input{
+    width: 100%;
     padding: 5px;
-    min-height: 200px;
+    background-color: #24262a;
+    color: #84d1de;
+    margin: 5px 0px;
+    font-size: 1em;
+
     border: solid;
     border-radius: 10px;
-    border-color: #24262a;
+    border-color: #84d1de;
 }
 
-.journal_add_entry_close{
+.goals_add_goal_close{
     width: 40px;
     height: 40px;
     padding: 5px;
@@ -103,7 +118,7 @@
     font-weight: bold;
 }
 
-.journal_list {
+.goals_list {
     border: solid;
     border-radius: 10px;
     border-color: #24262a;
@@ -114,19 +129,19 @@
     color: #84d1de;
 }
 
-.journal_404_text {
+.goals_404_text {
     font-weight: bold;
     font-size: larger;
     text-align: center;
 }
 
-.journal_404_img {
+.goals_404_img {
     display: grid;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-.journal_list_element {
+.goals_list_element {
     border: solid;
     border-radius: 10px;
     border-color: #84d1de;
@@ -139,7 +154,7 @@
     padding: 10px;
 }
 
-.journal_date {
+.goals_name {
     font-weight: bold;
     padding-bottom: 5px;
     display: flex;
@@ -147,12 +162,12 @@
     justify-content: space-between;
 }
 
-.journal_delete{
+.goals_delete{
     width: 50px;
     padding: 0px;
 }
 
-.journal_entry {
+.goals_goal {
     border: solid;
     border-radius: 10px;
     border-color: #24262a;
@@ -161,4 +176,57 @@
     color: #84d1de;
 
     padding: 10px;
+}
+
+.goals_goal_completed {
+    border: solid;
+    border-radius: 10px;
+    border-color: #24262a;
+
+    background-color: #24262a;
+    color: #37e24e;
+
+    padding: 10px;
+}
+
+.goals_progress {
+    background-color: #24262a;
+    margin-top: 10px;
+    width: 100%;
+    border: solid;
+    border-radius: 20px;
+    border-color: #323436;
+
+}
+
+.goals_progress::-webkit-progress-bar {
+    background-color: #323436;
+
+}
+
+.goals_progress::-webkit-progress-value {
+    background-color: #84d1de;
+    border: solid;
+    border-radius: 20px;
+}
+
+.goals_progress_completed {
+    background-color: #24262a;
+    margin-top: 10px;
+    width: 100%;
+    border: solid;
+    border-radius: 20px;
+    border-color: #323436;
+
+}
+
+.goals_progress_completed::-webkit-progress-bar {
+    background-color: #323436;
+
+}
+
+.goals_progress_completed::-webkit-progress-value {
+    background-color: #37e24e;
+    border: solid;
+    border-radius: 20px;
 }
