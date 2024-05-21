@@ -1,16 +1,10 @@
 import React from 'react';
 import "./sidebar.css"
 
-export default function Sidebar({ loadHome, loadHabits, loadGoals,  loadJournal }) {
+export default function Sidebar({ loadHabits, loadGoals,  loadJournal }) {
   return (
     <div className="sidebar">
-      <div>
-        <div>
-          <button className='sidebar_button' onClick={loadHome}>
-            <img src='/Home.svg' width={35} className='sidebar_img'></img>
-            Home
-          </button>
-        </div>  
+      <div>  
         <div>
           <button className='sidebar_button' onClick={loadHabits}>
             <img src='/Habits.svg' width={35} className='sidebar_img'></img>

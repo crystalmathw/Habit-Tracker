@@ -204,8 +204,8 @@ export default function Habits({ username, loading, loadHabits }) {
           </div>
           <div className="habits_habit_NOTcheck">
             <div>Due next time: Today</div>
-            <div>
-              Complete Habit:
+            <div style={{height: 20}}>
+            <p>Complete Habit:</p>
               <input
                 id={"HabitCheckmark" + habit.id}
                 type="checkbox"
@@ -255,8 +255,8 @@ export default function Habits({ username, loading, loadHabits }) {
               <div>
                 Due next time: {date(new Date(habit.nextTimeDue), true)}{" "}
               </div>
-              <div>
-                Complete Habit:
+              <div style={{height: 20}}>
+                <p>Complete Habit:</p>
                 <input
                   id={"HabitCheckmark" + habit.id}
                   type="checkbox"

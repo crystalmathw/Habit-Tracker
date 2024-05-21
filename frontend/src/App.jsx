@@ -3,7 +3,6 @@ import './App.css'
 import Header from "./content/header"
 import Sidebar from "./content/sidebar"
 import Footer from "./content/footer"
-import Home from "./pages/home"
 import Habits from './pages/habits';
 import Goals from "./pages/goals";
 import Journal from "./pages/journal"
@@ -19,24 +18,21 @@ export default function App() {
   const [username, setUsername] = useState("Profile")
 
 // functions to load pages
-  function loadHome() {
+
+  function loadHabits() {
     setPage(1);
   }
 
-  function loadHabits() {
+  function loadGoals() {
     setPage(2);
   }
 
-  function loadGoals() {
+  function loadJournal() {
     setPage(3);
   }
 
-  function loadJournal() {
-    setPage(4);
-  }
-
   function loading() {
-    setPage(5)
+    setPage(4)
   }
 
   function loggedIn() {
@@ -63,15 +59,13 @@ export default function App() {
     content = <CreateAccount loggedIn={loggedIn} setUser={setUser} accCreated={accCreated} />
   } else {
     //checking what page is active
-    if (page === 1) {
-      content = <Home />
-    } else if (page === 2){
+    if (page === 1){
       content = <Habits username={username} loading={loading} loadHabits={loadHabits}/>
-    } else if (page === 3){
+    } else if (page === 2){
       content = <Goals username={username} loading={loading} loadGoals={loadGoals}/>
-    } else if (page === 4){
+    } else if (page === 3){
       content = <Journal username={username} loading={loading} loadJournal={loadJournal}/>
-    } else if (page === 5){
+    } else if (page === 4){
       content = <Loading/>
     }
   }
@@ -80,7 +74,7 @@ export default function App() {
     <main>
       <Header username={username}/>
       <div className='container'>
-        <Sidebar loadHome={loadHome} loadHabits={loadHabits} loadGoals={loadGoals} loadJournal={loadJournal} />
+        <Sidebar loadHabits={loadHabits} loadGoals={loadGoals} loadJournal={loadJournal} />
         <div className="main">
           {content}
         </div>
