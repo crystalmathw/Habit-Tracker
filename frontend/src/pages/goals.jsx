@@ -34,7 +34,7 @@ export default function Goals({ username, loading, loadGoals }) {
 
   function completedGoals(goal) {
     if (
-      Math.floor(getDifferenceInDays(new Date(), new Date(goal.startDate))) ===
+      Math.floor(getDifferenceInDays(new Date(), new Date(goal.startDate))) >=
       goal.goal
     ) {
       return (
@@ -125,7 +125,7 @@ export default function Goals({ username, loading, loadGoals }) {
               X
             </button>
           </div>
-          <div className="goals_add_menue">
+          <div className="goals_add_menu">
             <label>
               Name:
               <input

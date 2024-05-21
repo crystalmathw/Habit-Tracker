@@ -32,7 +32,7 @@
 
 .createAccount_error {
     margin: 2px;
-    color: red;
+    color: #F02D3A;
     height: 25px;
     animation: alternate;
 }

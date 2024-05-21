@@ -4,14 +4,14 @@ import "./login.css";
 
 export default function Login({ loggedIn, setUser, addAccount }) {
   //Variable for enterd Username
-  const [usernameValue, setUsernameValue] = useState("");
+  const [usernameValue, setUsernameValue] = useState("Karl");
   const searchUsername = (event) => {
     setUsernameValue(event.target.value);
     setLoginError("");
   };
 
   //Variable for enterd Password
-  const [passwordValue, setPasswordValue] = useState("");
+  const [passwordValue, setPasswordValue] = useState("Groß");
   const searchPassword = (event) => {
     setPasswordValue(event.target.value);
     setLoginError("");

@@ -7,6 +7,11 @@
     border-radius: 10px;
     border-color: #24262a;
 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
     padding: 10px;
 
     background-color: #24262a;
@@ -21,3 +26,202 @@
     font-size: 1.5em;
     font-weight: bold;
 }
+
+.habits_add{
+    width: 51px;
+    height: 51px;
+
+    border-radius: 30px;
+}
+
+.habits_add_habit{
+    width: 700px;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #24262a;
+
+    border: solid;
+    border-radius: 10px;
+    border-color: #fff;
+
+    margin: 15px 0px;
+
+    background-color: #84d1de;
+    color: #24262a;
+
+    padding: 5px;
+}
+
+.habits_add_habit_header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.habits_add_habit_text{
+    font-weight: bold;
+    margin: 0px;
+}
+
+.habits_add_habit_close{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    background-color: #24262a;
+    color: #84d1de;
+    margin: 0px;
+}
+
+.habits_add_habit_button{
+    width: 100%;
+    padding: 5px;
+    background-color: #24262a;
+    color: #84d1de;
+    margin: 0px;
+}
+
+.habits_add_menu{
+    display: grid;
+    background-color: #24262a;
+    color: #84d1de;
+    padding: 10px;
+
+    border: solid;
+    border-radius: 20px;
+    border-color: #24262a;
+    justify-content: center;
+}
+
+.habits_add_input{
+    padding: 5px;
+    background-color: #24262a;
+    color: #84d1de;
+    margin: 5px 0px;
+    font-size: 1em;
+
+    border: solid;
+    border-radius: 10px;
+    border-color: #84d1de;
+}
+
+.habits_add_label_input{
+    width: 250px;
+    display: grid;
+    align-items: center;
+
+}
+
+.habits_add_label_select{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.habits_add_select{
+    width: 60%;
+    padding: 5px;
+    background-color: #24262a;
+    color: #84d1de;
+    margin: 5px 0px;
+    font-size: 1em;
+
+    border: solid;
+    border-radius: 10px;
+    border-color: #84d1de;
+}
+
+.habits_list {
+    border: solid;
+    border-radius: 10px;
+    border-color: #24262a;
+
+    padding-right: 10px;
+
+    background-color: #24262a;
+    color: #84d1de;
+}
+
+.habits_404_text {
+    font-weight: bold;
+    font-size: larger;
+    text-align: center;
+}
+
+.habits_404_img {
+    display: grid;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.habits_list_element {
+    border: solid;
+    border-radius: 10px;
+    border-color: #84d1de;
+
+    margin: 15px 0px;
+
+    background-color: #84d1de;
+    color: #24262a;
+
+    padding: 10px;
+}
+
+.habits_name {
+    font-weight: bold;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.habits_delete{
+    width: 50px;
+    padding: 0px;
+}
+
+.habits_habit {
+    border: solid;
+    border-radius: 10px;
+    border-color: #24262a;
+
+    background-color: #24262a;
+    color: #84d1de;
+
+    padding: 10px;
+}
+
+.habits_habit_check {
+    border: solid;
+    border-radius: 10px;
+    border-color: #24262a;
+
+    background-color: #24262a;
+    color: #A6FFA1;
+
+    padding: 10px;
+}
+
+.habits_habit_NOTcheck {
+    border: solid;
+    border-radius: 10px;
+    border-color: #24262a;
+
+    background-color: #24262a;
+    color: #F02D3A;
+
+    padding: 10px;
+}
+
+.error {
+    margin: 2px;
+    color: #F02D3A;
+    height: 25px;
+    animation: alternate;
+    text-align: center;
+    font-weight: bold;
+}
+

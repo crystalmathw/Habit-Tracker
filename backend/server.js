@@ -97,6 +97,8 @@ app.put('/data/:username/journal', (req, res) => {
     }
 }),
 
+
+
 app.put('/data/:username/goals', (req, res) => {
     const username = req.params.username;
     const goalData = req.body;
@@ -105,6 +107,27 @@ app.put('/data/:username/goals', (req, res) => {
         const user = data.find((p) => p.username == username);
         if (user) {
             user.goals.content.push(goalData)
+            data[user.id-1]=user
+
+            /fs.writeFileSync("./data/users.json", JSON.stringify(data), function(err) {
+                if (err) throw err;
+                console.log('complete');
+            })
+        res.status(200).json(user);
+        } else {
+        res.status(404).send('User not found');
+        }
+    }
+})
+
+app.put('/data/:username/habits', (req, res) => {
+    const username = req.params.username;
+    const habitData = req.body;
+
+    if (habitData.id && habitData.name && habitData.frequency) {
+        const user = data.find((p) => p.username == username);
+        if (user) {
+            user.habits.content.push(habitData)
             data[user.id-1]=user
 
             /fs.writeFileSync("./data/users.json", JSON.stringify(data), function(err) {
@@ -143,6 +166,33 @@ app.put('/data/:username/delete/goals', (req, res) => {
         }
     }
     data[newUserData.id-1]=newUserData
+    fs.writeFileSync("./data/users.json", JSON.stringify(data), function(err) {
+        if (err) throw err;
+        console.log('complete');
+    })
+    res.status(200).json(data)
+})
+
+app.put('/data/:username/delete/habits', (req, res) => {
+    app.use(express.json());
+    var newUserData = req.body;
+    if (newUserData.habits.content.length !== 0){
+        for (let i = 0; i < newUserData.habits.content.length; i++) {
+            newUserData.habits.content[i].id = i + 1
+        }
+    }
+    data[newUserData.id-1]=newUserData
+    fs.writeFileSync("./data/users.json", JSON.stringify(data), function(err) {
+        if (err) throw err;
+        console.log('complete');
+    })
+    res.status(200).json(data)
+})
+
+app.put('/data/:username/habits/history', (req, res) => {
+    app.use(express.json());
+    var userData = req.body;
+    data[userData.id-1]=userData
     fs.writeFileSync("./data/users.json", JSON.stringify(data), function(err) {
         if (err) throw err;
         console.log('complete');

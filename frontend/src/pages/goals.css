@@ -75,8 +75,7 @@
     margin: 0px;
 }
 
-/*add Menu desinge*/
-.goals_add_menue{
+.goals_add_menu{
     display: grid;
     background-color: #24262a;
     color: #84d1de;
@@ -111,7 +110,7 @@
 
 .error {
     margin: 2px;
-    color: red;
+    color: #F02D3A;
     height: 25px;
     animation: alternate;
     text-align: center;
@@ -184,7 +183,7 @@
     border-color: #24262a;
 
     background-color: #24262a;
-    color: #37e24e;
+    color: #A6FFA1;
 
     padding: 10px;
 }
@@ -226,7 +225,7 @@
 }
 
 .goals_progress_completed::-webkit-progress-value {
-    background-color: #37e24e;
+    background-color: #A6FFA1;
     border: solid;
     border-radius: 20px;
 }
