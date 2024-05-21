@@ -1,1 +1,1 @@
-[{"id":1,"username":"Karl","password":"Groß","habits":{"content":[]},"goals":{"content":[]},"journal":{"content":[]}}]
+[{"id":1,"username":"Karl","password":"Groß","habits":{"content":[]},"goals":{"content":[]},"journal":{"content":[{"id":1,"date":"21.05.2024","entry":"Jana"},{"id":2,"date":"21.05.2024","entry":"N"}]}},{"id":2,"username":".","password":".","habits":{"content":[]},"goals":{"content":[]},"journal":{"content":[]}}]

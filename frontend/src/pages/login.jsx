@@ -80,7 +80,7 @@ export default function Login({ loggedIn, setUser, addAccount }) {
           </button>
         </div>
         <p style={{ margin: "0" }}>Do not have an account?</p>
-        <button onClick={addAccount}>Sign In</button>
+        <button onClick={addAccount}>Register</button>
       </div>
     </div>
   );
