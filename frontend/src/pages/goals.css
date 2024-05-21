@@ -153,6 +153,19 @@
     padding: 10px;
 }
 
+.goals_list_element_completed {
+    border: solid;
+    border-radius: 10px;
+    border-color: #A6FFA1;
+
+    margin: 15px 0px;
+
+    background-color: #A6FFA1;
+    color: #24262a;
+
+    padding: 10px;
+}
+
 .goals_name {
     font-weight: bold;
     padding-bottom: 5px;
@@ -164,6 +177,8 @@
 .goals_delete{
     width: 50px;
     padding: 0px;
+    background-color: #ffffff00;
+    border-color: #ffffff00;
 }
 
 .goals_goal {

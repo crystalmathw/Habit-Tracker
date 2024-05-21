@@ -170,6 +170,32 @@
     padding: 10px;
 }
 
+.habits_list_element_check {
+    border: solid;
+    border-radius: 10px;
+    border-color: #A6FFA1;
+
+    margin: 15px 0px;
+
+    background-color: #A6FFA1;
+    color: #24262a;
+
+    padding: 10px;
+}
+
+.habits_list_element_NOTcheck {
+    border: solid;
+    border-radius: 10px;
+    border-color: #F02D3A;
+
+    margin: 15px 0px;
+
+    background-color: #F02D3A;
+    color: #24262a;
+
+    padding: 10px;
+}
+
 .habits_name {
     font-weight: bold;
     padding-bottom: 5px;
@@ -181,6 +207,8 @@
 .habits_delete{
     width: 50px;
     padding: 0px;
+    background-color: #ffffff00;
+    border-color: #ffffff00;
 }
 
 .habits_habit {

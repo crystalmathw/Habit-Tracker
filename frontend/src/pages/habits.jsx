@@ -192,17 +192,28 @@ export default function Habits({ username, loading, loadHabits }) {
     checkFrequency(habit);
     if (habit.nextTimeDue == date(new Date(), false)) {
       return (
-        <div className="habits_habit_NOTcheck">
-          <div>Due next time: Today</div>
-          <div>
-            Complete Habit:
-            <input
-              id={"HabitCheckmark" + habit.id}
-              type="checkbox"
-              onChange={() => {
-                habitDone(habit);
-              }} //add function to check habit  and update nextTimeDue
-            />
+        <div className="habits_list_element_NOTcheck">
+          <div className="habits_name">
+            {habit.name}
+            <button
+              className="habits_delete"
+              onClick={() => deleteHabits(habit.id)}
+            >
+              <img src="/delete.svg" width={20}></img>
+            </button>
+          </div>
+          <div className="habits_habit_NOTcheck">
+            <div>Due next time: Today</div>
+            <div>
+              Complete Habit:
+              <input
+                id={"HabitCheckmark" + habit.id}
+                type="checkbox"
+                onChange={() => {
+                  habitDone(habit);
+                }} //add function to check habit  and update nextTimeDue
+              />
+            </div>
           </div>
         </div>
       );
@@ -213,24 +224,48 @@ export default function Habits({ username, loading, loadHabits }) {
       //show next time due
       if (habit.lastTimeDue < date(new Date(), false)) {
         return (
-          <div className="habits_habit">
-            <div>Due next time: {habit.nextTimeDue}</div>
+          <div className="habits_list_element">
+            <div className="habits_name">
+              {habit.name}
+              <button
+                className="habits_delete"
+                onClick={() => deleteHabits(habit.id)}
+              >
+                <img src="/delete.svg" width={20}></img>
+              </button>
+            </div>
+            <div className="habits_habit">
+              <div>Due next time: {habit.nextTimeDue}</div>
+            </div>
           </div>
         );
       } else {
         return (
-          <div className="habits_habit_check">
-            <div>Due next time: {date(new Date(habit.nextTimeDue), true)} </div>
-            <div>
-              Complete Habit:
-              <input
-                id={"HabitCheckmark" + habit.id}
-                type="checkbox"
-                checked={true}
-                onChange={() => {
-                  habitUndo(habit);
-                }}
-              />
+          <div className="habits_list_element_check">
+            <div className="habits_name">
+              {habit.name}
+              <button
+                className="habits_delete"
+                onClick={() => deleteHabits(habit.id)}
+              >
+                <img src="/delete.svg" width={20}></img>
+              </button>
+            </div>
+            <div className="habits_habit_check">
+              <div>
+                Due next time: {date(new Date(habit.nextTimeDue), true)}{" "}
+              </div>
+              <div>
+                Complete Habit:
+                <input
+                  id={"HabitCheckmark" + habit.id}
+                  type="checkbox"
+                  checked={true}
+                  onChange={() => {
+                    habitUndo(habit);
+                  }}
+                />
+              </div>
             </div>
           </div>
         );
@@ -258,18 +293,7 @@ export default function Habits({ username, loading, loadHabits }) {
       } else {
         const userHabits = userData.habits.content; //getting Habits from UserData
         const listItems = userHabits.map((habit) => (
-          <div key={habit.id} className="habits_list_element">
-            <div className="habits_name">
-              {habit.name}
-              <button
-                className="habits_delete"
-                onClick={() => deleteHabits(habit.id)}
-              >
-                <img src="/delete.svg" width={20}></img>
-              </button>
-            </div>
-            {habitCheck(habit)}
-          </div>
+          <div key={habit.id}>{habitCheck(habit)}</div>
         ));
         return listItems;
       }

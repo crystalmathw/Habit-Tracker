@@ -38,30 +38,52 @@ export default function Goals({ username, loading, loadGoals }) {
       goal.goal
     ) {
       return (
-        <div className="goals_goal_completed">
-          Progress: Completed ✓
-          <progress
-            value="1"
-            max="1"
-            className="goals_progress_completed"
-          ></progress>
+        <div className="goals_list_element_completed">
+          <div className="goals_name">
+            {goal.name}
+            <button
+              className="goals_delete"
+              onClick={() => deleteGoals(goal.id)}
+            >
+              <img src="/delete.svg" width={20}></img>
+            </button>
+          </div>
+          <div className="goals_goal_completed">
+            Progress: Completed ✓
+            <progress
+              value="1"
+              max="1"
+              className="goals_progress_completed"
+            ></progress>
+          </div>
         </div>
       );
     } else {
       return (
-        <div className="goals_goal">
-          Progress:{" "}
-          {Math.floor(
-            getDifferenceInDays(new Date(), new Date(goal.startDate))
-          )}
-          /{goal.goal}
-          <progress
-            value={Math.floor(
+        <div className="goals_list_element">
+          <div className="goals_name">
+            {goal.name}
+            <button
+              className="goals_delete"
+              onClick={() => deleteGoals(goal.id)}
+            >
+              <img src="/delete.svg" width={20}></img>
+            </button>
+          </div>
+          <div className="goals_goal">
+            Progress:{" "}
+            {Math.floor(
               getDifferenceInDays(new Date(), new Date(goal.startDate))
             )}
-            max={goal.goal}
-            className="goals_progress"
-          ></progress>
+            /{goal.goal}
+            <progress
+              value={Math.floor(
+                getDifferenceInDays(new Date(), new Date(goal.startDate))
+              )}
+              max={goal.goal}
+              className="goals_progress"
+            ></progress>
+          </div>
         </div>
       );
     }
@@ -87,18 +109,7 @@ export default function Goals({ username, loading, loadGoals }) {
         const userGoals = userData.goals.content; //getting Goals from UserData
 
         const listItems = userGoals.map((goal) => (
-          <div key={goal.id} className="goals_list_element">
-            <div className="goals_name">
-              {goal.name}
-              <button
-                className="goals_delete"
-                onClick={() => deleteGoals(goal.id)}
-              >
-                <img src="/delete.svg" width={20}></img>
-              </button>
-            </div>
-            {completedGoals(goal)}
-          </div>
+          <div key={goal.id}>{completedGoals(goal)}</div>
         ));
         return listItems;
       }
@@ -132,7 +143,8 @@ export default function Goals({ username, loading, loadGoals }) {
                 className="goals_add_input"
                 id="goals_input_name"
                 type="text"
-                placeholder="Enter the Name of the Goal" />
+                placeholder="Enter the Name of the Goal"
+              />
             </label>
             <label>
               Goal:
@@ -141,7 +153,8 @@ export default function Goals({ username, loading, loadGoals }) {
                 id="goals_input_goal"
                 type="number"
                 min={1}
-                placeholder="Enter the Goal in Days" />
+                placeholder="Enter the Goal in Days"
+              />
             </label>
           </div>
           <div className="error">{error}</div>
