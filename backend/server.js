@@ -1,6 +1,6 @@
 // Import the express module
 import express from 'express';
-import data from "./data/users.json" assert { type: "json" }
+import data from "./data/users.json" with { type: "json" }
 import fs from "fs";
 
 import cors from 'cors'
