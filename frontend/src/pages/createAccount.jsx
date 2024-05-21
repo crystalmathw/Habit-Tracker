@@ -79,8 +79,8 @@ export default function CreateAccount({ loggedIn, setUser, accCreated }) {
         </div>
         <div>
             <div className='createAccount'>
-                <input type='text' placeholder='Username' value={usernameValue} onChange={searchUsername} className='createAccount_input'/>
-                <input type='password' placeholder="Password" value={passwordValue} onChange={searchPassword} className='createAccount_input'/>
+                <input minLength="2" maxLength="10" type='text' placeholder='Username' value={usernameValue} onChange={searchUsername} className='createAccount_input'/>
+                <input minLength="4" type='password' placeholder="Password" value={passwordValue} onChange={searchPassword} className='createAccount_input'/>
                 <div className='createAccount_error'>
                     {CreateAccountError}
                 </div>
