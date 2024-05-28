@@ -13,9 +13,9 @@ import { Simulate } from 'react-dom/test-utils';
 
 export default function App() {
   const [page, setPage] = useState(1);
-  const [isLogin, setLogin] = useState(false); 
+  const [isLogin, setLogin] = useState(localStorage.getItem("username") ? true : false); 
   const [createAcc, setCreateAcc] = useState(false);
-  const [username, setUsername] = useState("Profile")
+  const [username, setUsername] = useState(localStorage.getItem("username") ?localStorage.getItem("username") :  "Profile")
 
 // functions to load pages
 
@@ -72,7 +72,7 @@ export default function App() {
 
   return (
     <main>
-      <Header username={username}/>
+      <Header isLoggedIn={isLogin}/>
       <div className='container'>
         <Sidebar loadHabits={loadHabits} loadGoals={loadGoals} loadJournal={loadJournal} />
         <div className="main">

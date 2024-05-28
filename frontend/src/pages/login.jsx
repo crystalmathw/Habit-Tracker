@@ -45,6 +45,7 @@ export default function Login({ loggedIn, setUser, addAccount }) {
         //checking if passwords match
         loggedIn(); //logging Account in
         setUser(user.username); //sending Username to App.jsx
+        localStorage.setItem("username", user.username); //saving Username in LocalStorage
       } else {
         setLoginError("Username and password do not match"); //if not give Error
       }
